@@ -69,6 +69,19 @@ let sort = (numbers) => {
     return numbers[0] < numbers[1] ? numbers : numbers.reverse();
   }
 };
+
+// 找出数组最小值
+let min = (numbers) => {
+  if (numbers.length > 2) {
+    return min([numbers[0], min(numbers.splice(1))]);
+  } else {
+    return Math.min.apply(null, numbers);
+  }
+};
+
+// minIndex实现
+let minIndex = (numbers) => numbers.indexOf(min(numbers));
+
 //用代入法分析 排序 sort([12,5,8,7,9])
 
 // sort([12, 5,8, 7, 9])
