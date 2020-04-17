@@ -33,5 +33,40 @@ let sort2 = ([a, b]) => (a < b ? [a, b] : [b, a]);
 
 let sort3 = (numbers) => {
   let index = minIndex([numbers]);
-  return [numbers[index]].concat(sort2(numbers.splice(index, 1)));
+  numbers.splice(index, 1); //从numbers 里删掉 min
+  return [min].concat(sort2(numbers));
+  //   return [numbers[index]].concat(sort2(numbers.splice(index, 1)));
 };
+
+// minIndex实现
+let minIndex = (numbers) => numbers.indexOf(min(numbers));
+
+// 长度为4的数组排序
+let sort4 = (numbers) => {
+  let index = minIndex(numbers);
+  let min = numbers[index];
+  numbers.splice(index, 1);
+  return [min].concat(sort3(numbers.splice(index, 1)));
+};
+
+// 任意长度的数组排序
+
+// 代码
+
+let sort = (numbers) => {
+  //判断数组长度
+  if (numbers.length > 2) {
+    //求出数组最小值的下标
+    let index = minIndex(numbers);
+    //求出数组最小值
+    let min = numbers[index];
+    //删掉数组最小值
+    numbers.splice(index, 1);
+    // 返回 数组最小值 + 对后面数组进行排序
+    return [min].concat(sort(numbers));
+  } else {
+    // 返回 成立 当前数组  否则 当前数组倒序
+    return numbers[0] < numbers[1] ? numbers : numbers.reverse();
+  }
+};
+//用代入法 排序 sort([12,5,7,9])
