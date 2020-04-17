@@ -69,7 +69,7 @@ let sort = (numbers) => {
     return numbers[0] < numbers[1] ? numbers : numbers.reverse();
   }
 };
-//用代入法 排序 sort([12,5,8,7,9])
+//用代入法分析 排序 sort([12,5,8,7,9])
 
 // sort([12, 5,8, 7, 9])
 //  = [5] + sort([12,8, 7, 9])
