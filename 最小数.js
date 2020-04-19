@@ -11,7 +11,7 @@
 
 // a>b ? a : b
 
-// 3个
+// 找出数组最小数
 
 let min = (numbers) => {
   if (numbers.length > 2) {
