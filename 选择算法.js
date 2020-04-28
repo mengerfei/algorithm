@@ -19,3 +19,10 @@ let swap = (array, i, j) => {
 };
 
 // 调用：swap(numbers,1,2)
+
+let sort = (numbers) => {
+  for (let i = 0; i < numbers.length - 1; i++) {
+    let index = minIndex(numbers.slice(i) + i);
+    swap(numbers, index, i);
+  }
+};
